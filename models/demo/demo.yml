@@ -3,6 +3,17 @@ version: 2
 models:
   - name: employee
     description: "Employee DBT model"
+    columns:
+      - name: emp_id
+        data_tests:
+          - unique
+          - not_null
+      - name: emp_firstname
+        data_tests:
+          - not_null
+      - name: emp_lastname
+        data_tests:
+          - not_null
 
 sources:
   - name: employee
