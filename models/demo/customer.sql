@@ -1,5 +1,5 @@
 
-{{ config( materialized = 'table')}}
+{{ config( materialized = 'table') }}
 
 WITH customer_src AS (
     SELECT 

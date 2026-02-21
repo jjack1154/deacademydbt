@@ -21,6 +21,8 @@ models:
           - salary_check
   - name: customer
     description: "Customer DBT model"
+  - name: customer_vw
+    description: "Customer View DBT model"
 
 sources:
   - name: employee
@@ -33,4 +35,10 @@ sources:
     schema: PUBLIC
     tables:
       - name: CUSTOMER_SRC
+  - name: customer_vw
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: CUSTOMER
+
 
