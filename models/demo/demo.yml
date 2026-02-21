@@ -8,12 +8,17 @@ models:
         data_tests:
           - unique
           - not_null
-      - name: emp_firstname
-        data_tests:
-          - not_null
       - name: emp_lastname
         data_tests:
-          - not_null
+          - null_check
+          - accepted_values:
+              arguments: 
+                values: ['null', '', ' ']
+                config:
+                  severity: Warn
+      - name: emp_salary
+        data_tests:
+          - salary_check
 
 sources:
   - name: employee
@@ -21,3 +26,4 @@ sources:
     schema: PUBLIC
     tables:
       - name: EMPLOYEE_RAW
+
