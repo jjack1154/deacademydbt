@@ -3,7 +3,7 @@
     (
        materialized = 'incremental',
        incremental_strategy = 'delete+insert',
-       unique_key = 'PRODUCT_ID'      
+       unique_key = 'PRODUCT_ID'
     )
 }}
 

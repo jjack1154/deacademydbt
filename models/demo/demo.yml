@@ -27,6 +27,8 @@ models:
     description: "Sales DBT incremental model"
   - name: product
     description: "Product DBT model"
+  - name: purchase
+    description: "Purchase DBT model"
 
 sources:
   - name: employee
@@ -49,6 +51,11 @@ sources:
     schema: PUBLIC
     tables:
       - name: PRODUCT_SRC
+  - name: purchase
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PURCHASE_SRC
 
 
 
