@@ -33,6 +33,8 @@ models:
     description: "DBT ephemeral model"
   - name: final_orders 
     description: "DBT final orders model"
+  - name: session
+    description: "DBT session model"
 
 sources:
   - name: employee
@@ -70,6 +72,11 @@ sources:
     schema: PUBLIC
     tables:
       - name: PATIENT_SRC
+  - name: session
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SESSION_SRC
 
 
 
