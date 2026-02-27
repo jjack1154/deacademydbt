@@ -8,12 +8,37 @@ models:
         data_tests:
           - unique
           - not_null
-      - name: emp_firstname
-        data_tests:
-          - not_null
       - name: emp_lastname
         data_tests:
-          - not_null
+          - null_check
+          - accepted_values:
+              arguments: 
+                values: ['null', '', ' ']
+                config:
+                  severity: Warn
+      - name: emp_salary
+        data_tests:
+          - salary_check
+  - name: customer
+    description: "Customer DBT model"
+  - name: customer_vw
+    description: "Customer View DBT model"
+  - name: sales
+    description: "Sales DBT incremental model"
+  - name: product
+    description: "Product DBT model"
+  - name: purchase
+    description: "Purchase DBT model"
+  - name: clean_orders
+    description: "DBT ephemeral model"
+  - name: final_orders 
+    description: "DBT final orders model"
+  - name: session
+    description: "DBT session model"
+  - name: concat_address
+    description: "DBT concat address model"
+  - name: concat_name
+    description: "DBT concat name model"
 
 sources:
   - name: employee
@@ -21,3 +46,41 @@ sources:
     schema: PUBLIC
     tables:
       - name: EMPLOYEE_RAW
+  - name: customer
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: CUSTOMER_SRC
+  - name: sales
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SALES_SRC
+  - name: product
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PRODUCT_SRC
+  - name: purchase
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PURCHASE_SRC
+  - name: orders
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: BASE_ORDERS
+  - name: patient
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PATIENT_SRC
+  - name: session
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SESSION_SRC
+
+
+
